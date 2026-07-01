@@ -164,6 +164,16 @@
   .contact-info a{display:flex; align-items:center; gap:14px; margin-bottom:18px; color:var(--text-muted); transition:color .2s, transform .2s; font-size:1rem;}
   .contact-info a:hover{color:var(--cyan); transform:translateX(4px);}
   .contact-info .ic{width:40px; height:40px; border-radius:50%; background:var(--bg-panel); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1rem;}
+  .contact-wrap{display:grid; grid-template-columns:1fr 1.2fr; gap:48px; align-items:start;}
+  form.contact-form{display:flex; flex-direction:column; gap:14px;}
+  form.contact-form input, form.contact-form textarea{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:10px;
+    padding:13px 16px; color:var(--text); font-family:'Inter'; font-size:.92rem; resize:vertical;
+  }
+  form.contact-form input:focus, form.contact-form textarea:focus{outline:2px solid var(--cyan); outline-offset:1px;}
+  form.contact-form textarea{min-height:120px;}
+  #formNote{font-size:.84rem; margin-top:4px; min-height:1.2em;}
+  @media(max-width:760px){.contact-wrap{grid-template-columns:1fr;}}
 
   footer{padding:36px 0; text-align:center; color:var(--text-muted); font-size:.82rem; border-top:1px solid var(--line);}
 
@@ -222,10 +232,11 @@
   <div class="wrap">
     <div class="hero-eyebrow eyebrow"><span class="dot"></span> AVAILABLE FOR FULL-TIME ROLES</div>
     <h1>Abdul Raheem Ali Khan<br><span class="grad-text">builds things that move, connect &amp; protect.</span></h1>
-    <p class="lead">Computer Science Engineering graduate (B.Tech, 2026 batch) from Bengaluru, with hands-on experience across embedded robotics, data encryption, and DevOps/cloud automation.</p>
+    <p class="lead">Computer Science Engineering graduate with hands-on experience across embedded robotics, data encryption, and DevOps/cloud automation.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="#projects">View Projects</a>
       <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+      <a class="btn btn-ghost" href="Abdul_Raheem_Ali_Khan_Resume.pdf" download style="border-color:var(--amber); color:var(--amber);">⬇ Download Resume</a>
     </div>
   </div>
 </header>
@@ -241,7 +252,6 @@
       <div>
         <div class="stat-card"><div class="num">3</div><div class="lbl">Industry internships completed</div></div>
         <div class="stat-card"><div class="num">5</div><div class="lbl">Languages spoken</div></div>
-        <div class="stat-card"><div class="num">2026</div><div class="lbl">Graduating batch</div></div>
       </div>
     </div>
   </div>
@@ -354,15 +364,12 @@
     </div>
     <div class="edu-item">
       <div><h3>Presidency University</h3><div class="deg">B.Tech in Computer Science and Engineering · CGPA: 7.15</div></div>
-      <div class="when">2026</div>
     </div>
     <div class="edu-item">
       <div><h3>M.N Technical Institute</h3><div class="deg">Diploma in Computer Science and Engineering · CGPA: 8.15</div></div>
-      <div class="when">2023</div>
     </div>
     <div class="edu-item">
       <div><h3>Five 'H' English School</h3><div class="deg">SSLC · 70.71%</div></div>
-      <div class="when">2020</div>
     </div>
 
     <div class="section-head" style="margin-top:50px;">
@@ -384,7 +391,7 @@
       <span class="eyebrow">// CONTACT</span>
       <h2>Let's talk</h2>
     </div>
-    <div class="contact-grid">
+    <div class="contact-wrap">
       <div class="contact-info">
         <a href="mailto:abdulraheem2386@gmail.com"><span class="ic">✉</span> abdulraheem2386@gmail.com</a>
         <a href="tel:+918317370307"><span class="ic">☎</span> +91 8317370307</a>
@@ -392,6 +399,17 @@
         <a href="https://linkedin.com/in/abdul-raheem-ali-khan" target="_blank" rel="noopener"><span class="ic">in</span> linkedin.com/in/abdul-raheem-ali-khan</a>
         <a href="#"><span class="ic">⚲</span> Bengaluru, Karnataka</a>
       </div>
+      <form class="contact-form" id="contactForm">
+        <input type="hidden" name="access_key" value="b27f43ef-9729-43b2-aa2a-1f6980ed55dc">
+        <input type="hidden" name="subject" value="New message from your portfolio">
+        <input type="hidden" name="from_name" value="Portfolio Contact Form">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <input type="text" name="subject_line" placeholder="Subject">
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button type="submit" class="btn btn-primary" style="justify-content:center;">Send Message</button>
+        <div id="formNote"></div>
+      </form>
     </div>
   </div>
 </section>
@@ -407,6 +425,30 @@
   });
 
   // Get in Touch button scrolls to contact section (handled by anchor href + smooth scroll CSS)
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var note = document.getElementById('formNote');
+    note.style.color = 'var(--text-muted)';
+    note.textContent = 'Sending…';
+    var data = new FormData(this);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    }).then(res => res.json()).then(data => {
+      if(data.success){
+        note.style.color = 'var(--cyan)';
+        note.textContent = '✓ Message sent! I\'ll get back to you soon.';
+        document.getElementById('contactForm').reset();
+      } else {
+        note.style.color = 'var(--pink)';
+        note.textContent = 'Something went wrong. Please email me directly.';
+      }
+    }).catch(() => {
+      note.style.color = 'var(--pink)';
+      note.textContent = 'Something went wrong. Please email me directly.';
+    });
+  });
 </script>
 
 </body>
