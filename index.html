@@ -42,7 +42,7 @@
   }
   a{color:inherit; text-decoration:none;}
   .wrap{max-width:980px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
-
+ 
   /* NAV */
   nav{
     position:sticky; top:0; z-index:50;
@@ -58,7 +58,7 @@
   .nav-links a:hover{color:var(--cyan);}
   .nav-toggle{display:none; flex-direction:column; gap:4px; cursor:pointer; background:none; border:none;}
   .nav-toggle span{width:22px; height:2px; background:var(--text);}
-
+ 
   /* HERO */
   .hero{position:relative; padding:120px 0 90px; overflow:hidden;}
   .hero .wrap{position:relative;}
@@ -78,14 +78,14 @@
   .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 24px rgba(79,227,208,.35);}
   .btn-ghost{border:1px solid var(--line); color:var(--text);}
   .btn-ghost:hover{border-color:var(--cyan); color:var(--cyan);}
-
+ 
   /* SECTION SHELL */
   section{padding:80px 0; position:relative;}
   .section-head{margin-bottom:42px;}
   .section-head .eyebrow{color:var(--pink); margin-bottom:10px; display:block;}
   .section-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
   .divider{height:1px; background:linear-gradient(90deg,var(--line),transparent); margin:0 0 0;}
-
+ 
   /* ABOUT */
   .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:start;}
   .about-grid p{color:var(--text-muted); font-size:1.02rem;}
@@ -95,7 +95,7 @@
   }
   .stat-card .num{font-family:'Space Grotesk'; font-size:1.6rem; font-weight:700; color:var(--cyan);}
   .stat-card .lbl{font-size:.82rem; color:var(--text-muted);}
-
+ 
   /* SKILLS */
   .skill-group{margin-bottom:26px;}
   .skill-group .eyebrow{display:block; margin-bottom:12px;}
@@ -110,7 +110,9 @@
   .skill-group.plat .chip{border-color:rgba(255,178,62,.4); color:var(--amber);}
   .skill-group.sec .chip{border-color:rgba(255,93,168,.4); color:var(--pink);}
   .skill-group.other .chip{border-color:rgba(185,169,255,.4); color:var(--lilac);}
-
+  .skill-group.web .chip{border-color:rgba(185,169,255,.4); color:var(--lilac);}
+  .skill-group.embed .chip{border-color:rgba(255,178,62,.4); color:var(--amber);}
+ 
   /* EXPERIENCE — circuit trace timeline */
   .timeline{position:relative; padding-left:34px;}
   .timeline::before{
@@ -132,7 +134,7 @@
   .t-item ul{list-style:none; color:var(--text-muted); font-size:.95rem;}
   .t-item li{position:relative; padding-left:18px; margin-bottom:7px;}
   .t-item li::before{content:'▹'; position:absolute; left:0; color:var(--pink);}
-
+ 
   /* PROJECTS */
   .proj-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:22px;}
   .proj-card{
@@ -146,7 +148,7 @@
   .proj-card p{color:var(--text-muted); font-size:.92rem; margin-bottom:14px;}
   .tech-tags{display:flex; flex-wrap:wrap; gap:7px;}
   .tech-tags span{font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--text-muted); border:1px solid var(--line); padding:3px 9px; border-radius:6px;}
-
+ 
   /* EDUCATION + CERTS */
   .edu-item{display:flex; justify-content:space-between; gap:20px; padding:16px 0; border-bottom:1px solid var(--line); flex-wrap:wrap;}
   .edu-item:last-child{border-bottom:none;}
@@ -158,7 +160,7 @@
     font-size:.85rem; padding:8px 14px; border-radius:8px; background:var(--bg-panel);
     border:1px solid var(--line); color:var(--text-muted);
   }
-
+ 
   /* CONTACT */
   .contact-grid{max-width:520px;}
   .contact-info a{display:flex; align-items:center; gap:14px; margin-bottom:18px; color:var(--text-muted); transition:color .2s, transform .2s; font-size:1rem;}
@@ -174,9 +176,9 @@
   form.contact-form textarea{min-height:120px;}
   #formNote{font-size:.84rem; margin-top:4px; min-height:1.2em;}
   @media(max-width:760px){.contact-wrap{grid-template-columns:1fr;}}
-
+ 
   footer{padding:36px 0; text-align:center; color:var(--text-muted); font-size:.82rem; border-top:1px solid var(--line);}
-
+ 
   @media (max-width:760px){
     .nav-links{display:none;}
     .nav-toggle{display:flex;}
@@ -189,7 +191,7 @@
 </style>
 </head>
 <body>
-
+ 
 <svg class="bg-circuit" viewBox="0 0 1000 1400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs>
     <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
@@ -212,7 +214,7 @@
     <circle cx="300" cy="1040" r="4"/><circle cx="600" cy="1100" r="4"/>
   </g>
 </svg>
-
+ 
 <nav>
   <div class="wrap">
     <div class="nav-logo">ARAK<span>.</span></div>
@@ -227,7 +229,7 @@
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
+ 
 <header class="hero">
   <div class="wrap">
     <div class="hero-eyebrow eyebrow"><span class="dot"></span> AVAILABLE FOR FULL-TIME ROLES</div>
@@ -239,7 +241,7 @@
     </div>
   </div>
 </header>
-
+ 
 <section id="about">
   <div class="wrap">
     <div class="section-head">
@@ -255,7 +257,7 @@
     </div>
   </div>
 </section>
-
+ 
 <section id="skills">
   <div class="wrap">
     <div class="section-head">
@@ -264,7 +266,15 @@
     </div>
     <div class="skill-group lang">
       <span class="eyebrow">Languages</span>
-      <div class="chips"><span class="chip">Java</span><span class="chip">Python</span><span class="chip">Embedded C</span></div>
+      <div class="chips"><span class="chip">Java</span><span class="chip">Python</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">Embedded C</span></div>
+    </div>
+    <div class="skill-group web">
+      <span class="eyebrow">Web &amp; Full Stack</span>
+      <div class="chips"><span class="chip">Laravel</span><span class="chip">HTML</span><span class="chip">CSS</span></div>
+    </div>
+    <div class="skill-group embed">
+      <span class="eyebrow">Embedded &amp; Hardware</span>
+      <div class="chips"><span class="chip">Arduino</span><span class="chip">Arduino IDE</span><span class="chip">ESP32</span><span class="chip">Raspberry Pi</span></div>
     </div>
     <div class="skill-group plat">
       <span class="eyebrow">Platforms &amp; Tools</span>
@@ -276,11 +286,11 @@
     </div>
     <div class="skill-group other">
       <span class="eyebrow">Other</span>
-      <div class="chips"><span class="chip">Problem Solving</span><span class="chip">IoT Concepts</span></div>
+      <div class="chips"><span class="chip">Problem Solving</span><span class="chip">IoT Concepts</span><span class="chip">Team Collaboration</span><span class="chip">Business Acumen</span><span class="chip">Adaptability</span><span class="chip">Communication</span></div>
     </div>
   </div>
 </section>
-
+ 
 <section id="experience">
   <div class="wrap">
     <div class="section-head">
@@ -322,7 +332,7 @@
     </div>
   </div>
 </section>
-
+ 
 <section id="projects">
   <div class="wrap">
     <div class="section-head">
@@ -351,10 +361,15 @@
         <p>Built a full-stack alumni engagement platform with a web portal and companion mobile app for alumni-student networking, event updates, and communication — developed as part of a final-year team capstone project.</p>
         <div class="tech-tags"><span>PHP</span><span>Laravel</span><span>MySQL</span><span>Flutter</span></div>
       </div>
+      <div class="proj-card" style="border-top-color:var(--amber);">
+        <h3>Institute Website</h3>
+        <p>Built and deployed a website for an educational institute, handling course/department information and student-facing content with a Django backend and SQL-based data storage.</p>
+        <div class="tech-tags"><span>Python</span><span>Django</span><span>SQL</span></div>
+      </div>
     </div>
   </div>
 </section>
-
+ 
 <section id="education">
   <div class="wrap">
     <div class="section-head">
@@ -362,7 +377,7 @@
       <h2>Academic background</h2>
     </div>
     <div class="edu-item">
-      <div><h3>Presidency University</h3><div class="deg">B.Tech in Computer Science and Engineering · CGPA: 7.15</div></div>
+      <div><h3>Presidency University</h3><div class="deg">B.Tech in Computer Science and Engineering · CGPA: 7.27</div></div>
     </div>
     <div class="edu-item">
       <div><h3>M.N Technical Institute</h3><div class="deg">Diploma in Computer Science and Engineering · CGPA: 8.15</div></div>
@@ -370,7 +385,7 @@
     <div class="edu-item">
       <div><h3>Five 'H' English School</h3><div class="deg">SSLC · 70.71%</div></div>
     </div>
-
+ 
     <div class="section-head" style="margin-top:50px;">
       <span class="eyebrow">// CERTIFICATIONS</span>
       <h2 style="font-size:1.3rem;">Courses &amp; trainings</h2>
@@ -383,7 +398,7 @@
     </div>
   </div>
 </section>
-
+ 
 <section id="contact">
   <div class="wrap">
     <div class="section-head">
@@ -412,19 +427,19 @@
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <div class="wrap">© 2026 Abdul Raheem Ali Khan. Built with circuits, curiosity, and a bit of caffeine.</div>
 </footer>
-
+ 
 <script>
   document.getElementById('navToggle').addEventListener('click', function(){
     document.querySelector('.nav-links').style.display =
       document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex';
   });
-
+ 
   // Get in Touch button scrolls to contact section (handled by anchor href + smooth scroll CSS)
-
+ 
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
     var note = document.getElementById('formNote');
@@ -449,6 +464,11 @@
     });
   });
 </script>
-
+ 
 </body>
 </html>
+ 
+
+
+
+
